@@ -1,0 +1,177 @@
+/* Color palette */
+/* 
+
+  #00ffff - (Aqua);     // primary
+  #166EF3 - (Vivid Sky Blue); // secondary
+  #230903 - (Dark Sienna); // text
+  #FFFBFC - (Snow); // background
+
+*/
+
+/* Variables
+------------------------------------*/
+
+:root {
+  /* Color variables */
+
+  --primary: #166EF3;
+  --secondary: #00ffff;
+  --text: #230903;
+  --background: #FFFBFC;
+  --background-primary: #cccccc;
+  --background-secondary: #e5e5e5;
+  --main-gradient: linear-gradient(to right, #166EF3, #00ffff);
+
+  /* Font variables */
+  --main-font: Arial, Helvetica, sans-serif;
+}
+
+/* Basic
+------------------------------------*/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--main-font);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+button:focus {
+  border-radius: 0px;
+  outline: none;
+}
+
+/* Showcase
+------------------------------------*/
+
+.showcase {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  background: var(--main-gradient);
+}
+
+/* Box
+------------------------------------*/
+
+.box {
+  display: grid;
+  place-items: center;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Tab panel
+------------------------------------*/
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--text);
+  
+}
+
+.tabs__list {
+  display: flex;
+  flex: 1 1 0;
+  margin: 0;
+  padding: 0;
+  font-size: .8rem; 
+}
+
+.tabs__button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2px;
+  color: var(--background);
+  background: var(--text);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.tabs__button:hover, .tabs__button.active:hover {
+  color: var(--text);
+  background-color: var(--background-primary);
+  transition: .5s ease-out; 
+}
+
+.tabs__button.active {
+  color: var(--text);
+  background-color: var(--background-secondary);
+}
+
+/* Panels */
+
+.panel {
+  display: flex;
+}
+
+.panel__body {
+  /* To keep all panels have equal heights */
+  display: block;
+  visibility: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: -100%; 
+  width: 100%;
+  padding: 20px;
+  background-color: var(--background-secondary);
+  color: var(--text);
+}
+
+.panel__body.active { 
+  visibility: visible;
+}
+
+@media only screen and (max-width: 600px) {
+  .box {
+    display: block;
+    width: 90%;
+    font-size: small;
+  }
+
+  .tabs__button {
+    padding: 10px 10px;
+    letter-spacing: initial;   
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .box {
+    min-width: 95%;
+  }
+
+}
+
+
+
+
+
+
+
